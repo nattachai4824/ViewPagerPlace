@@ -6,10 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
-class ListFragment : Fragment(){
+class ListFragment : Fragment() {
 
     companion object {
-        fun newInstance() : ListFragment{
+        fun newInstance(): ListFragment {
             return ListFragment()
         }
     }

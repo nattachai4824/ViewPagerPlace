@@ -11,23 +11,30 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Setup two new tabs
         appTab.addTab(appTab.newTab().setText("PLACE"))
         appTab.addTab(appTab.newTab().setText("LIST"))
 
-        vpContainer.adapter = object : FragmentStatePagerAdapter(supportFragmentManager){
-            override fun getItem(position: Int) = when(position){
+
+        // Setup the adapter for the view pager
+        vpContainer.adapter = object : FragmentStatePagerAdapter(supportFragmentManager) {
+            override fun getItem(position: Int) = when (position) {
+            // Return the fragment corresponding to the page position
                 0 -> PlaceFragment()
                 else -> PlaceFragment()
             }
 
+            // Return the number of existing pages
             override fun getCount() = 2
 
-            override fun getPageTitle(position: Int) = when(position){
+            // Return the title of the tab corresponding to the page position
+            override fun getPageTitle(position: Int) = when (position) {
                 0 -> "PLACE"
                 else -> "LIST"
             }
         }
 
+        // Bind the tab with view pager
         appTab.setupWithViewPager(vpContainer)
     }
 }
